@@ -17,10 +17,11 @@ This project is developed as a **team-based student project**.
 
 ## 🛠️ Tech Stack
 
-* **Language:** Java
-* **UI:** JavaFX
-* **Database:** PostgreSQL
-* **Build Tool:** Maven
+* **Language:** Java 18
+* **UI:** JavaFX 18
+* **Database:** PostgreSQL 16
+* **Build Tool:** Maven 3 
+* **Testing Framework** JUnit 5
 * **Version Control:** Git + GitHub
 * **CI/CD:** GitHub Actions
 * **Documentation:** Javadoc (auto-generated & deployed)
@@ -39,7 +40,7 @@ This project is developed as a **team-based student project**.
 ---
 
 ## 📚 Use Cases
-
+![UML-use-cases-diagram](./docs/UML-use-cases-diagram.svg)
 ### 🎬 UC-01: Load Data
 
 **Actor:** User  
@@ -179,22 +180,33 @@ This project is developed as a **team-based student project**.
 
 ## 🧩 UML Class Diagram
 
-> *(UML diagram will be here)*
+![UML-class-diagram](./docs/UML-class-diagram.png)
 
 **Description:**
 
-* Main entities: `Movie`, `User`, `Service`, `Repository` ...
 * Separation of concerns:
 
-  * UI layer (JavaFX)
-  * Business logic (Service layer)
-  * Data access (Repository/DAO layer)
+  * UI layer (JavaFX): 
+    * `MainViewFXML`
+    * `CreateMovieFXML`
+  * Business logic (Service layer):
+    * `MovieService`
+    * `ActorService`
+  * Data access (DAO layer):
+    * `DatabaseConnection`
+    * `MovieDAO`
+    * `ActorDao`
+  * Controllers:
+    * `MovieController`
+    * `CreateMovieController`
+  * Domain layer(Models):
+    * `Movie`
+    * `Actor`
 
 ---
 
 ## 🗄️ ER Diagram (Database)
-
-> *(ER diagram will be here)*
+![er-diagram](./docs/er-diagram.png)
 
 **Description:**
 
@@ -203,9 +215,7 @@ This project is developed as a **team-based student project**.
   * `movies`
   * `actors`
   * `roles`
-* Relationships:
 
-  * One-to-many / many-to-many (depending on design)
 * Normalized structure for efficient querying
 
 ---
@@ -258,7 +268,7 @@ On each push:
 | ---------- | ---------------------------- | ------ |
 | 2026-03-01 | UI prototype                 | ✅      |
 | 2026-03-04 | Database design              | ✅      |
-| 2026-03-18 | Design UML class diagram                 | ✅      |
+| 2026-03-18 | Design UML class diagram     | ✅      |
 | 2026-03-24 | Project setup                | ✅      |
 | YYYY-MM-DD | Core features implementation | ⬜      |
 | YYYY-MM-DD | Testing                      | ⬜      |
@@ -274,7 +284,7 @@ src/
  │   ├── java/
  │   │   ├── controller/
  │   │   ├── service/
- │   │   ├── repository/
+ │   │   ├── dao/
  │   │   └── model/
  │   └── resources/
  └── test/
