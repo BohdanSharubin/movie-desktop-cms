@@ -219,6 +219,168 @@ This project is developed as a **team-based student project**.
 * Normalized structure for efficient querying
 
 ---
+## 🎨 UI Design
+
+### 📌 Overview
+
+This document describes the user interface design of the desktop application built using **JavaFX**.  
+The application provides functionality for browsing, managing, and searching movie data.
+
+The UI consists of two main windows:
+
+- **Main Window** — displays movie data and main actions
+- **Add Movie Window** — form for adding new movies
+
+---
+
+### 🖥️ Main Window
+
+#### 📖 Description
+
+The Main Window is the primary interface of the application.  
+It allows users to view the list of movies and perform basic operations such as adding, editing, deleting, and searching.
+
+---
+![main-layout](./docs/main-layout.png)
+#### 🧩 Layout Structure
+
+- **Top Panel**
+    - Application title
+    - Search field
+    - "Search" button
+
+- **Center Area**
+    - TableView with movie data
+
+- **Bottom Panel**
+    - Action buttons:
+        - ➕ Add Movie
+        - ✏️ Edit Movie
+        - ❌ Delete Movie
+
+---
+
+#### 📊 Table Columns
+
+| Column   | Description                  |
+|----------|------------------------------|
+| ID       | Unique movie identifier      |
+| Title    | Movie title                  |
+| Year     | Release date                 |
+| Country  | Country of production        |
+| Rating   | Movie rating                 |
+
+---
+
+#### ⚙️ User Actions
+
+- View all movies on application startup
+- Search movies by criteria
+- Select a movie from the table
+- Open "Add Movie" form
+- Edit selected movie
+- Delete selected movie
+
+---
+
+#### ⚠️ Validation & Errors
+
+- If no movie is selected for edit/delete → show error alert
+- If search fails → show notification
+- If database connection fails → show critical error
+
+---
+
+### ➕ Add Movie Window
+
+#### 📖 Description
+
+This window allows the user to add a new movie to the system.  
+It is opened from the Main Window.
+
+---
+<img src="./docs/add-movie-layout.png" width="60%" alt="add-new-movie-layout">
+
+#### 🧩 Layout Structure
+
+- **Form Fields**
+    - Title (TextField)
+    - Year (DatePicker)
+    - Country (TextField)
+    - Rating (TextField / Spinner)
+
+- **Action Buttons**
+    - 💾 Save
+    - ❌ Cancel
+
+---
+
+#### 🧠 Validation Rules
+
+| Field   | Rule                              |
+|--------|------------------------------------|
+| Title  | Required, not empty                |
+| Year   | Required, valid date               |
+| Country| Required                           |
+| Rating | Required, number (0–10)            |
+
+---
+
+#### ⚙️ User Flow
+
+1. User clicks "Add Movie"
+2. Form window opens
+3. User fills in all required fields
+4. User clicks "Save"
+5. System validates input:
+    - If valid → movie is saved to DB
+    - If invalid → show error message
+
+---
+
+#### ⚠️ Error Handling
+
+- Invalid input → show validation message
+- Database error → show alert
+- Cancel button → closes window without saving
+
+---
+
+### 🔄 Navigation
+
+| From         | Action            | To               |
+|--------------|------------------|------------------|
+| Main Window  | Add Movie        | Add Movie Window |
+| Add Window   | Save / Cancel    | Main Window      |
+
+---
+
+### 🎯 UX Considerations
+
+- Simple and clean layout
+- Minimal number of clicks for main actions
+- Clear feedback for user actions
+- Consistent button placement
+- Readable table structure
+
+---
+
+### 🛠️ Technologies Used
+
+- JavaFX (UI framework)
+- FXML (UI layout definition)
+- CSS (styling)
+
+---
+
+### 📌 Future Improvements
+
+- Add Movie Details window
+- Pagination for large datasets
+- Advanced search filters
+- Light mode (because why not)
+
+---
 
 ## 👥 Team Members
 
@@ -264,15 +426,15 @@ On each push:
 
 ## 📅 Project Timeline
 
-| Date       | Task                         | Status |
-| ---------- | ---------------------------- | ------ |
-| 2026-03-01 | UI prototype                 | ✅      |
-| 2026-03-04 | Database design              | ✅      |
-| 2026-03-18 | Design UML class diagram     | ✅      |
-| 2026-03-24 | Project setup                | ✅      |
-| YYYY-MM-DD | Core features implementation | ⬜      |
-| YYYY-MM-DD | Testing                      | ⬜      |
-| YYYY-MM-DD | Final release                | ⬜      |
+| Date      | Task                     | Status | performed by whom                                    |
+|-----------|--------------------------| ------ |------------------------------------------------------|
+| 2026-03-01 | UI prototype             | ✅      | ALL                                                  |
+| 2026-03-04 | Database design          | ✅      | ALL                                                  |
+| 2026-03-18 | Design UML class diagram | ✅      | ALL                                                  |
+| 2026-03-24 | Project setup            | ✅      | [Bohdan Sharubin](https://github.com/BohdanSharubin) |
+| 2026-04-08 | Add main domain models   | ✅      | [Bohdan Sharubin](https://github.com/BohdanSharubin) |
+| YYYY-MM-DD | Testing                  | ⬜      | 
+| YYYY-MM-DD | Final release            | ⬜      |
 
 ---
 
