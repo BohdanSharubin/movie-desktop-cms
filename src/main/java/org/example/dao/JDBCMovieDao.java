@@ -39,6 +39,32 @@ public class JDBCMovieDao implements MovieDao {
     }
 
     @Override
+    public List<Movie> findByTitle(String title) {
+        final String sql = "SELECT * FROM movies WHERE title ILIKE ?";
+        try(Connection connection = DatabaseConnection.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, "%" + title + "%");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return rowMapper.mapList(resultSet);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Movie> findByYear(int year) {
+        final String sql = "SELECT * FROM movies m WHERE extract(year FROM m.year) = ?";
+        try(Connection connection = DatabaseConnection.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, year);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return rowMapper.mapList(resultSet);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public boolean save(Movie movie) {
         final String sql = "INSERT INTO movies(title, year, country, rating) VALUES (?, ?, ?, ?)";
         try(Connection connection = DatabaseConnection.getConnection();

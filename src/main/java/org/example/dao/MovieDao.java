@@ -11,4 +11,6 @@ public interface MovieDao extends DAO<Movie> {
     boolean save(Movie movie);
     boolean update(Movie movie);
     boolean delete(int id);
+    List<Movie> findByTitle(String title);
+    List<Movie> findByYear(int year);
 }
