@@ -16,7 +16,7 @@ public class JDBCMovieDao implements MovieDao {
     public List<Movie> findAll() {
         final String sql = "SELECT * FROM movies";
         try (Connection connection = DatabaseConnection.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(sql);) {
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             ResultSet resultSet = preparedStatement.executeQuery();
             return rowMapper.mapList(resultSet);
         } catch (SQLException e) {
@@ -28,7 +28,7 @@ public class JDBCMovieDao implements MovieDao {
     public Optional<Movie> findById(int id) {
         final String sql = "SELECT * FROM movies WHERE id = ?";
         try(Connection connection = DatabaseConnection.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);) {
+        PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             Movie movie = rowMapper.map(resultSet);
