@@ -1,6 +1,6 @@
 package org.example.dao;
 
-import org.example.dbhelper.DatabaseConnection;
+import org.example.dbhelper.ConnectionFactory;
 import org.example.mappers.MovieMapper;
 import org.example.mappers.RowMapper;
 import org.example.models.Movie;
@@ -19,7 +19,7 @@ import java.util.Optional;
  * <p>
  * This class uses:
  * <ul>
- *     <li>{@link DatabaseConnection} to obtain database connections</li>
+ *     <li>{@link ConnectionFactory} to obtain database connections</li>
  *     <li>{@link RowMapper} ({@link MovieMapper}) to map {@link ResultSet} rows to {@link Movie} objects</li>
  * </ul>
  * </p>
@@ -45,7 +45,7 @@ public class JDBCMovieDao implements MovieDao {
     @Override
     public List<Movie> findAll() {
         final String sql = "SELECT " + SELECT_COLUMNS + " FROM movies";
-        try (Connection connection = DatabaseConnection.getConnection();
+        try (Connection connection = ConnectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -66,7 +66,7 @@ public class JDBCMovieDao implements MovieDao {
     @Override
     public Optional<Movie> findById(int id) {
         final String sql = "SELECT " + SELECT_COLUMNS + " FROM movies WHERE id = ?";
-        try (Connection connection = DatabaseConnection.getConnection();
+        try (Connection connection = ConnectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
             preparedStatement.setInt(1, id);
@@ -90,7 +90,7 @@ public class JDBCMovieDao implements MovieDao {
     @Override
     public List<Movie> findByTitle(String title) {
         final String sql = "SELECT " + SELECT_COLUMNS + " FROM movies WHERE title ILIKE ?";
-        try (Connection connection = DatabaseConnection.getConnection();
+        try (Connection connection = ConnectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
             preparedStatement.setString(1, "%" + title + "%");
@@ -117,7 +117,7 @@ public class JDBCMovieDao implements MovieDao {
     @Override
     public List<Movie> findByYear(int year) {
         final String sql = "SELECT " + SELECT_COLUMNS + " FROM movies m WHERE extract(year FROM m.year) = ?";
-        try (Connection connection = DatabaseConnection.getConnection();
+        try (Connection connection = ConnectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
             preparedStatement.setInt(1, year);
@@ -140,7 +140,7 @@ public class JDBCMovieDao implements MovieDao {
     @Override
     public boolean save(Movie movie) {
         final String sql = "INSERT INTO movies(title, year, country, rating) VALUES (?, ?, ?, ?)";
-        try (Connection connection = DatabaseConnection.getConnection();
+        try (Connection connection = ConnectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
             preparedStatement.setString(1, movie.getTitle());
@@ -165,7 +165,7 @@ public class JDBCMovieDao implements MovieDao {
     @Override
     public boolean update(Movie movie) {
         final String sql = "UPDATE movies SET title=?, year=?, country=?, rating=? WHERE id=?";
-        try (Connection connection = DatabaseConnection.getConnection();
+        try (Connection connection = ConnectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
             preparedStatement.setString(1, movie.getTitle());
@@ -191,7 +191,7 @@ public class JDBCMovieDao implements MovieDao {
     @Override
     public boolean delete(int id) {
         final String sql = "DELETE FROM movies WHERE id=?";
-        try (Connection connection = DatabaseConnection.getConnection();
+        try (Connection connection = ConnectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
             preparedStatement.setInt(1, id);
