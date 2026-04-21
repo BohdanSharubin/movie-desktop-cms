@@ -70,6 +70,21 @@ public class Movie {
     }
 
     /**
+     * Constructs a movie without id.
+     *
+     * @param title   movie title
+     * @param year    release year
+     * @param country country of origin
+     * @param rating  movie rating
+     */
+    public Movie(String title, LocalDate year, String country, float rating) {
+        this.title = title;
+        this.year = year;
+        this.country = country;
+        this.rating = rating;
+    }
+
+    /**
      * Returns the movie ID.
      *
      * @return movie ID
@@ -202,5 +217,22 @@ public class Movie {
     @Override
     public int hashCode() {
         return Objects.hash(id, title, year, country, rating);
+    }
+
+    /**
+     * Returns string representation of Movie instance.
+     *
+     * @return string
+     */
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", year=" + year +
+                ", country='" + country + '\'' +
+                ", rating=" + rating +
+                ", roles=" + roles +
+                '}';
     }
 }
