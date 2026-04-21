@@ -25,7 +25,7 @@ public class MovieMapper implements RowMapper<Movie> {
         movie.setTitle(resultSet.getString("title"));
         movie.setCountry(resultSet.getString("country"));
         movie.setYear(resultSet.getDate("year").toLocalDate());
-        movie.setRating(resultSet.getInt("rating"));
+        movie.setRating(resultSet.getFloat("rating"));
         return movie;
     }
 }
