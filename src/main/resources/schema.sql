@@ -17,6 +17,6 @@ CREATE TABLE IF NOT EXISTS roles (
                                      movie_id INT NOT NULL,
                                      actor_id INT NOT NULL,
                                      PRIMARY KEY (movie_id, actor_id),
-                                     FOREIGN KEY (movie_id) REFERENCES movies(id),
-                                     FOREIGN KEY (actor_id) REFERENCES actors(id)
+                                     FOREIGN KEY (movie_id) REFERENCES movies(id) ON DELETE CASCADE ,
+                                     FOREIGN KEY (actor_id) REFERENCES actors(id) ON DELETE CASCADE
 );
