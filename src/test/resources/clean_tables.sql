@@ -1,0 +1,1 @@
+TRUNCATE TABLE roles, actors, movies RESTART IDENTITY CASCADE;
