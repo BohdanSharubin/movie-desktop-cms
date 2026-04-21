@@ -71,8 +71,11 @@ public class JDBCMovieDao implements MovieDao {
 
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
+            Movie movie = null;
+            if (resultSet.next()) {
+                movie = rowMapper.map(resultSet);
 
-            Movie movie = rowMapper.map(resultSet);
+            }
             return Optional.ofNullable(movie);
 
         } catch (SQLException e) {
