@@ -27,7 +27,7 @@ public interface DAO<T> {
      * @param id unique identifier of the entity
      * @return optional containing the entity if found, or empty if not found
      */
-    Optional<T> findById(int id);
+    Optional<T> findById(long id);
 
     /**
      * Persists a new entity in the data source.
@@ -51,5 +51,5 @@ public interface DAO<T> {
      * @param id unique identifier of the entity to delete
      * @return true if the deletion was successful, false otherwise
      */
-    boolean delete(int id);
+    boolean delete(long id);
 }

@@ -64,12 +64,12 @@ public class JDBCMovieDao implements MovieDao {
      * @throws RuntimeException if a database access error occurs
      */
     @Override
-    public Optional<Movie> findById(int id) {
+    public Optional<Movie> findById(long id) {
         final String sql = "SELECT " + SELECT_COLUMNS + " FROM movies WHERE id = ?";
         try (Connection connection = ConnectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
-            preparedStatement.setInt(1, id);
+            preparedStatement.setLong(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             Movie movie = null;
             if (resultSet.next()) {
@@ -192,12 +192,12 @@ public class JDBCMovieDao implements MovieDao {
      * @throws RuntimeException if a database access error occurs
      */
     @Override
-    public boolean delete(int id) {
+    public boolean delete(long id) {
         final String sql = "DELETE FROM movies WHERE id=?";
         try (Connection connection = ConnectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
-            preparedStatement.setInt(1, id);
+            preparedStatement.setLong(1, id);
             return preparedStatement.executeUpdate() == 1;
 
         } catch (SQLException e) {
