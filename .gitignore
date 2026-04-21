@@ -55,3 +55,6 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+# database connection parameters
+application.properties
