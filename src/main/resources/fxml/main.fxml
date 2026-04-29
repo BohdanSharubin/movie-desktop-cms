@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane
+    xmlns="http://javafx.com/javafx/17"
+    xmlns:fx="http://javafx.com/fxml/1"
+    stylesheets="@../css/styles.css"
+    style="-fx-background-color: #c8c8c8;">
+
+    <!-- ── Centre: search bar + table ── -->
+    <center>
+        <VBox spacing="20">
+            <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+
+            <!-- Search row -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <TextField
+                    fx:id="searchField"
+                    promptText="Search tickets..."
+                    prefWidth="320"
+                    prefHeight="42"
+                    styleClass="search-field"
+                    />
+
+                <Button
+                    text="Search"
+                    prefWidth="110"
+                    prefHeight="42"
+                    styleClass="primary-btn"
+                    />
+            </HBox>
+
+            <!-- Movie table -->
+            <TableView
+                fx:id="tableView"
+                prefHeight="500"
+                styleClass="movie-table"
+                VBox.vgrow="ALWAYS">
+
+                <columns>
+                    <TableColumn fx:id="idCol"       text="Id"       prefWidth="90"  minWidth="80"/>
+                    <TableColumn fx:id="titleCol"    text="Title"    prefWidth="280"/>
+                    <TableColumn fx:id="directorCol" text="Director" prefWidth="160"/>
+                    <TableColumn fx:id="genreCol"    text="Genre"    prefWidth="100"/>
+                    <TableColumn fx:id="yearCol"     text="Year"     prefWidth="80"/>
+                    <TableColumn fx:id="actionsCol"  text=""         prefWidth="50"
+                                 minWidth="50" maxWidth="50" resizable="false" sortable="false"/>
+                </columns>
+
+                <placeholder>
+                    <Label text="No movies found"/>
+                </placeholder>
+            </TableView>
+        </VBox>
+    </center>
+
+    <!-- ── Right sidebar: action buttons ── -->
+    <right>
+        <VBox spacing="16" alignment="TOP_CENTER">
+            <padding><Insets top="40" right="40" bottom="40" left="10"/></padding>
+
+            <Button
+                fx:id="addBtn"
+                text="Add new movie"
+                prefWidth="180"
+                prefHeight="52"
+                styleClass="sidebar-btn"
+                />
+
+            <Button
+                fx:id="editBtn"
+                text="Edit movie"
+                prefWidth="180"
+                prefHeight="52"
+                styleClass="sidebar-btn"
+                />
+
+            <Button
+                fx:id="deleteBtn"
+                text="Delete movie"
+                prefWidth="180"
+                prefHeight="52"
+                styleClass="sidebar-btn"
+                />
+        </VBox>
+    </right>
+
+</BorderPane>
