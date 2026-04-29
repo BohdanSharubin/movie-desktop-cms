@@ -12,7 +12,7 @@ import java.util.Properties;
  * <p>
  * Uses {@link PGSimpleDataSource} as underlying implementation of {@link DataSource}.
  * The factory must be initialized before use via {@link #initFactory(Properties)}.
- * </p>
+ * 
  */
 public class ConnectionFactory {
 
@@ -26,7 +26,7 @@ public class ConnectionFactory {
      * <p>
      * This class is a utility/factory class and should not be instantiated.
      * All methods are accessed in a static way.
-     * </p>
+     * 
      */
     private ConnectionFactory() {
     }
@@ -41,7 +41,7 @@ public class ConnectionFactory {
      *     <li>{@code user} - database username</li>
      *     <li>{@code password} - database password</li>
      * </ul>
-     * </p>
+     * 
      *
      * @param properties configuration properties for database connection
      */
