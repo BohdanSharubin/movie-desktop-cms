@@ -14,7 +14,6 @@ import java.util.Optional;
  * <p>
  * Provides CRUD operations and search queries for {@link Movie} entities
  * using plain JDBC and SQL queries.
- * </p>
  *
  * <p>
  * This class uses:
@@ -22,7 +21,7 @@ import java.util.Optional;
  *     <li>{@link ConnectionFactory} to obtain database connections</li>
  *     <li>{@link RowMapper} ({@link MovieMapper}) to map {@link ResultSet} rows to {@link Movie} objects</li>
  * </ul>
- * </p>
+ *
  */
 public class JDBCMovieDao implements MovieDao {
 
@@ -111,7 +110,7 @@ public class JDBCMovieDao implements MovieDao {
      * <p>
      * Uses SQL {@code EXTRACT(YEAR FROM ...)} to compare only the year part
      * of the date column.
-     * </p>
+     *
      *
      * @param year release year
      * @return list of movies released in the specified year
