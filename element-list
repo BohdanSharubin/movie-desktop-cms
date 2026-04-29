@@ -1,2 +1,5 @@
 org.example
+org.example.dao
+org.example.dbhelper
+org.example.mappers
 org.example.models
