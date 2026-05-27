@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane
+    xmlns="http://javafx.com/javafx/17"
+    xmlns:fx="http://javafx.com/fxml/1"
+    hgap="12"
+    vgap="14"
+    stylesheets="@../css/styles.css">
+
+    <padding><Insets top="20" right="30" bottom="10" left="10"/></padding>
+
+    <!-- Row 0: ID (read-only when editing) -->
+    <Label text="ID" styleClass="form-label"
+           GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <TextField fx:id="idField" styleClass="form-field" prefWidth="280"
+               GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+    <!-- Row 1: Title -->
+    <Label text="Title" styleClass="form-label"
+           GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField fx:id="titleField" styleClass="form-field" prefWidth="280"
+               GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+    <!-- Row 2: Director -->
+    <Label text="Director" styleClass="form-label"
+           GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <TextField fx:id="directorField" styleClass="form-field" prefWidth="280"
+               GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+    <!-- Row 3: Genre -->
+    <Label text="Genre" styleClass="form-label"
+           GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <TextField fx:id="genreField" styleClass="form-field" prefWidth="280"
+               GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+    <!-- Row 4: Year -->
+    <Label text="Year" styleClass="form-label"
+           GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <TextField fx:id="yearField" styleClass="form-field" prefWidth="280"
+               GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+</GridPane>
