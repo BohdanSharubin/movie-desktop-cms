@@ -385,10 +385,10 @@ It is opened from the Main Window.
 ## 👥 Team Members
 
 | Name     | Role         | Responsibilities                        | GitHub |
-| -------- | ------------ | --------------------------------------- | ------ |
+| -------- | ------------ |-----------------------------------------| ------ |
 | Bohdan Sharubin | Team Lead    | Architecture, code review, coordination | [BohdanSharubin](https://github.com/BohdanSharubin) |
 | Illia Voronko | Backend Dev  | Database, services, logic               | [VoronkoIllia](https://github.com/VoronkoIllia) |
-| Vladislav Ryzantsev | Frontend Dev | JavaFX UI, UX                           | [Nihilistt666](https://github.com/Nihilistt666) |
+| Vladislav Ryzantsev | Frontend Dev | JavaFX UI, UX, Controllers, Validation  | [Nihilistt666](https://github.com/Nihilistt666) |
 
 ---
 
@@ -426,15 +426,17 @@ On each push:
 
 ## 📅 Project Timeline
 
-| Date      | Task                     | Status | performed by whom                                    |
-|-----------|--------------------------| ------ |------------------------------------------------------|
-| 2026-03-01 | UI prototype             | ✅      | ALL                                                  |
-| 2026-03-04 | Database design          | ✅      | ALL                                                  |
-| 2026-03-18 | Design UML class diagram | ✅      | ALL                                                  |
-| 2026-03-24 | Project setup            | ✅      | [Bohdan Sharubin](https://github.com/BohdanSharubin) |
-| 2026-04-08 | Add main domain models   | ✅      | [Bohdan Sharubin](https://github.com/BohdanSharubin) |
-| YYYY-MM-DD | Testing                  | ⬜      | 
-| YYYY-MM-DD | Final release            | ⬜      |
+| Date       | Task                                     | Status | performed by whom                                    |
+|------------|------------------------------------------|--------|------------------------------------------------------|
+| 2026-03-01 | UI prototype                             | ✅      | ALL                                                  |
+| 2026-03-04 | Database design                          | ✅      | ALL                                                  |
+| 2026-03-18 | Design UML class diagram                 | ✅      | ALL                                                  |
+| 2026-03-24 | Project setup                            | ✅      | [Bohdan Sharubin](https://github.com/BohdanSharubin) |
+| 2026-04-08 | Add main domain models                   | ✅      | [Bohdan Sharubin](https://github.com/BohdanSharubin) |
+| 2026-04-29 | Add base UI                              | ✅      | [Bohdan Sharubin](https://github.com/BohdanSharubin) |
+| 2026-05-24 | Add movie validation and MovieController | ✅      | [Vladislav Ryzantsev](https://github.com/Nihilistt666)             |
+| YYYY-MM-DD | Testing                                  | ⬜      | 
+| YYYY-MM-DD | Final release                            | ⬜      |
 
 ---
 
